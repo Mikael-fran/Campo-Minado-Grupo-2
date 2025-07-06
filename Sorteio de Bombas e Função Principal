@@ -1,0 +1,26 @@
+void sortearbombas(int quantidade) {
+    int count = 0;
+    while(count < quantidade) {
+        int rl = rand() % tam;
+        int rc = rand() % tam;
+        
+        if(jogo[rl][rc].eBomba == 0) {
+            jogo[rl][rc].eBomba = 1;
+            count++;
+        }
+    }
+}
+
+int main() {
+    srand(time(NULL));
+    inicializarjogo();
+    sortearbombas(10);
+    contarbombas();
+    
+    while(1) {
+        imprimir();
+        jogar();
+    }
+    
+    return 0;
+}
